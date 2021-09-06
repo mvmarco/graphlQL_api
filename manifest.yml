@@ -1,0 +1,8 @@
+---
+applications:
+  - name: test
+    random-route: true
+    memory: 512M
+    path: .
+    buildpacks:
+      - nodejs_buildpack
