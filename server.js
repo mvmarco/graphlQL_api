@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const basicAuth = require("express-basic-auth");
 dotenv.config();
+ const cors = require("cors");
+
 
 const app = express();
 const graphQLSchema = require("./graphql/schema/index.cjs");
@@ -19,6 +21,17 @@ app.get("/", function (req, res) {
 //   })
 // );
 
+////////////////////////////////////////// MARCO
+app.use(cors());
+app.get("/", function (req, res) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.status(200).send({
+    status: "success",
+    data: "lol",
+  });
+});
+
+//////////////////////////////////////////
 app.use(
   "/graphql",
   graphqlHTTP({
